@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="../caça-niquel/css/style.css">
 </head>
 <body>
-  <div id="slots"></div>
-  <h1>Caça-níquel</h1>
+  <div id="container">
+    <h1 id="titulo">Caça-níquel</h1>
+    <div id="slots"></div>
+  </div>
 
-  <br>
-  <button onclick="girar()">Girar</button>
+  <button class="bt-girar" onclick="girar()">Girar</button>
 
   <script>
     function girar() {
@@ -29,8 +30,24 @@
           symbolDiv.classList.add("slot");
           slotsDiv.appendChild(symbolDiv);
         });
+
+        var titulo = document.getElementById("titulo");
+        titulo.style.marginTop = "0";
+
+        var btGirar = document.querySelector(".bt-girar");
+        btGirar.textContent = "Girar novamente";
+        btGirar.style.bottom = "200px";
+        btGirar.setAttribute("onclick", "girarNovamente()");
       })
       .catch(error => console.error('Erro ao carregar JSON:', error));
+    }
+
+    function girarNovamente() {
+      girar(); // Chama a função girar() novamente para recarregar os slots
+      var btGirar = document.querySelector(".bt-girar");
+      btGirar.textContent = "Girar";
+      btGirar.style.bottom = "250px";
+      btGirar.setAttribute("onclick", "girar()");
     }
 
     function getSymbolIndex(probabilities) {
