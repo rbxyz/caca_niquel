@@ -1,17 +1,37 @@
 {
-    "slots": [
-      {
-        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
-        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
-      },
-      {
-        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
-        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
-      },
-      {
-        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
-        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
-      }
-    ]
-  }
-  
+  "slots": [
+    {
+      "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+      "images": [
+        "https://img.freepik.com/free-vector/sticker-design-with-red-cherry-isolated_1308-64866.jpg",
+        "https://static.vecteezy.com/system/resources/previews/011/157/405/original/banana-cartoon-banana-peeled-isolate-on-white-background-vector.jpg",
+        "https://i.pinimg.com/originals/e9/38/a2/e938a2a3cf6cd84e0c6b01f9689133d9.png",
+        "https://m.media-amazon.com/images/I/51w76ofL4KL._AC_UF1000,1000_QL80_.jpg",
+        "https://media.istockphoto.com/id/1009838828/vector/vector-illustration-of-grapes-design-icon.jpg?s=612x612&w=0&k=20&c=zaT-JYQhrbQL-rhUAUxbmzuuxTw1EchVFjng9SO5diQ="
+      ],
+      "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+    },
+    {
+      "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+      "images": [
+        "https://img.freepik.com/free-vector/sticker-design-with-red-cherry-isolated_1308-64866.jpg",
+        "https://static.vecteezy.com/system/resources/previews/011/157/405/original/banana-cartoon-banana-peeled-isolate-on-white-background-vector.jpg",
+        "https://i.pinimg.com/originals/e9/38/a2/e938a2a3cf6cd84e0c6b01f9689133d9.png",
+        "https://m.media-amazon.com/images/I/51w76ofL4KL._AC_UF1000,1000_QL80_.jpg",
+        "https://media.istockphoto.com/id/1009838828/vector/vector-illustration-of-grapes-design-icon.jpg?s=612x612&w=0&k=20&c=zaT-JYQhrbQL-rhUAUxbmzuuxTw1EchVFjng9SO5diQ="
+      ],
+      "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+    },
+    {
+      "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+      "images": [
+        "https://img.freepik.com/free-vector/sticker-design-with-red-cherry-isolated_1308-64866.jpg",
+        "https://static.vecteezy.com/system/resources/previews/011/157/405/original/banana-cartoon-banana-peeled-isolate-on-white-background-vector.jpg",
+        "https://i.pinimg.com/originals/e9/38/a2/e938a2a3cf6cd84e0c6b01f9689133d9.png",
+        "https://m.media-amazon.com/images/I/51w76ofL4KL._AC_UF1000,1000_QL80_.jpg",
+        "https://media.istockphoto.com/id/1009838828/vector/vector-illustration-of-grapes-design-icon.jpg?s=612x612&w=0&k=20&c=zaT-JYQhrbQL-rhUAUxbmzuuxTw1EchVFjng9SO5diQ="
+      ],
+      "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+    }
+  ]
+}
