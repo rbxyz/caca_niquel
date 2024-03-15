@@ -24,11 +24,11 @@
 
         data.slots.forEach(function(slot) {
           var symbolIndex = getSymbolIndex(slot.probabilities);
-          var symbol = slot.symbols[symbolIndex];
-          var symbolDiv = document.createElement("div");
-          symbolDiv.textContent = symbol;
-          symbolDiv.classList.add("slot");
-          slotsDiv.appendChild(symbolDiv);
+          var image = slot.images[symbolIndex];
+          var imageDiv = document.createElement("img");
+          imageDiv.src = image;
+          imageDiv.classList.add("slot");
+          slotsDiv.appendChild(imageDiv);
         });
 
         var titulo = document.getElementById("titulo");
