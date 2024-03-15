@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caça-níquel</title>
+  <link rel="stylesheet" href="../caça-niquel/css/style.css">
+</head>
+<body>
+  <div id="slots"></div>
+  <h1>Caça-níquel</h1>
+
+  <br>
+  <button onclick="girar()">Girar</button>
+
+  <script>
+    function girar() {
+      fetch('file.json')
+      .then(response => response.json())
+      .then(data => {
+        var slotsDiv = document.getElementById("slots");
+        slotsDiv.innerHTML = "";
+
+        data.slots.forEach(function(slot) {
+          var symbolIndex = getSymbolIndex(slot.probabilities);
+          var symbol = slot.symbols[symbolIndex];
+          var symbolDiv = document.createElement("div");
+          symbolDiv.textContent = symbol;
+          symbolDiv.classList.add("slot");
+          slotsDiv.appendChild(symbolDiv);
+        });
+      })
+      .catch(error => console.error('Erro ao carregar JSON:', error));
+    }
+
+    function getSymbolIndex(probabilities) {
+      var total = probabilities.reduce(function(a, b) {
+        return a + b;
+      }, 0);
+      var random = Math.random() * total;
+      var sum = 0;
+      for (var i = 0; i < probabilities.length; i++) {
+        sum += probabilities[i];
+        if (random < sum) {
+          return i;
+        }
+      }
+      return probabilities.length - 1;
+    }
+  </script>
+</body>
+</html>

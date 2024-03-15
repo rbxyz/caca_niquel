@@ -1,0 +1,17 @@
+{
+    "slots": [
+      {
+        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+      },
+      {
+        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+      },
+      {
+        "symbols": ["cherry", "banana", "apple", "orange", "grape"],
+        "probabilities": [0.3, 0.2, 0.2, 0.15, 0.15]
+      }
+    ]
+  }
+  
