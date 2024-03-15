@@ -3,34 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caça-níquel</title>
   <link rel="stylesheet" href="../caça-niquel/css/style.css">
+  <title>Caça-níquel</title>
 </head>
 <body>
   <div id="container">
     <h1 id="titulo">Caça-níquel</h1>
     <div id="slots"></div>
   </div>
-
   <button class="bt-girar" onclick="girar()">Girar</button>
-
   <script>
     function girar() {
-      fetch('file.json')
-      .then(response => response.json())
-      .then(data => {
-        var slotsDiv = document.getElementById("slots");
-        slotsDiv.innerHTML = "";
+      var slotsDiv = document.getElementById("slots");
+      slotsDiv.innerHTML = "";
 
-        data.slots.forEach(function(slot) {
-          var symbolIndex = getSymbolIndex(slot.probabilities);
-          var image = slot.images[symbolIndex];
-          var imageDiv = document.createElement("img");
-          imageDiv.src = image;
-          imageDiv.classList.add("slot");
-          slotsDiv.appendChild(imageDiv);
-        });
+      var symbols = ["cherry", "banana", "apple", "orange", "grape"];
+      var symbolsLength = symbols.length;
 
+      var slotPromises = [];
+      for (var j = 0; j < 3; j++) {
+        var slotDiv = document.createElement("div");
+        slotDiv.classList.add("slot");
+        var randomIndex = Math.floor(Math.random() * symbolsLength);
+        var randomImage = 'img/' + symbols[randomIndex] + '.png';
+        var imageElement = document.createElement("img"); 
+        imageElement.src = randomImage; 
+        slotDiv.appendChild(imageElement);
+        slotsDiv.appendChild(slotDiv);
+        slotPromises.push(new Promise(resolve => slotDiv.addEventListener('animationend', resolve)));
+      }
+
+      Promise.all(slotPromises).then(() => {
         var titulo = document.getElementById("titulo");
         titulo.style.marginTop = "0";
 
@@ -38,31 +41,15 @@
         btGirar.textContent = "Girar novamente";
         btGirar.style.bottom = "200px";
         btGirar.setAttribute("onclick", "girarNovamente()");
-      })
-      .catch(error => console.error('Erro ao carregar JSON:', error));
+      });
     }
 
     function girarNovamente() {
-      girar(); // Chama a função girar() novamente para recarregar os slots
+      girar();
       var btGirar = document.querySelector(".bt-girar");
       btGirar.textContent = "Girar";
       btGirar.style.bottom = "250px";
       btGirar.setAttribute("onclick", "girar()");
-    }
-
-    function getSymbolIndex(probabilities) {
-      var total = probabilities.reduce(function(a, b) {
-        return a + b;
-      }, 0);
-      var random = Math.random() * total;
-      var sum = 0;
-      for (var i = 0; i < probabilities.length; i++) {
-        sum += probabilities[i];
-        if (random < sum) {
-          return i;
-        }
-      }
-      return probabilities.length - 1;
     }
   </script>
 </body>
